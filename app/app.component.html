@@ -1,0 +1,44 @@
+<mat-toolbar class="header">
+  <span>App Weather</span>
+</mat-toolbar>
+
+<div class="container">
+
+<mat-card class="weather-card">
+    <mat-card-header >
+    <img class="image" mat-card-image src="https://i.pinimg.com/564x/01/ff/77/01ff777506022bf5cc53321282505526.jpg" >
+  </mat-card-header>
+  <form  style="margin-top: 15%;" (submit)="submitLocation(cityName,countryCode)" class="form" cellspacing="0"><tr>
+    <td><mat-form-field >
+      <mat-label>City Name</mat-label>
+      <input  matInput placeholder="Ex. London" #cityName>
+    </mat-form-field>
+  </td>
+  </tr>
+    <td>
+      <mat-form-field >
+      <mat-label>Country Code</mat-label>
+      <input matInput placeholder="Ex. UK" #countryCode>
+    </mat-form-field>
+  </td>
+    <button class="button">Buscar</button>
+</form>
+</mat-card>
+
+
+  <mat-card *ngIf="weather" style="margin-top: 40px;height: fit-content;">
+    <mat-card-header>
+      <mat-card-title>Nombre: {{weather.name}} </mat-card-title>
+      <mat-card-title>Temperatura: {{weather.main.temp}}°C </mat-card-title>
+      <mat-card-title>Temperatura Maxima: {{weather.main.temp_max}}°C </mat-card-title>
+      <mat-card-title>Temperatura Minima: {{weather.main.temp_min}}°C </mat-card-title>
+      <mat-card-title>Latitude: {{weather.coord.lat}}</mat-card-title>
+      <mat-card-title>Longitude: {{weather.coord.lon}} </mat-card-title>
+      <mat-card-title>Humedad: {{weather.main.humidity}}%</mat-card-title>
+      <mat-card-title>Presion:  {{weather.main.pressure}} </mat-card-title>
+      <mat-card-title>Description: {{weather.weather[0].description}} </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+</div>
+
